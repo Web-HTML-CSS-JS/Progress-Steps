@@ -30,6 +30,7 @@ body {
   margin-bottom: 3rem;
   max-width: 100%;
   width: 400px;
+  margin: 5rem auto;
   position: relative;
 }
 .progress__container::before {

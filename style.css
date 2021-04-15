@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+body {
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 0;
+  background: rgba(250, 228, 202, 0.664);
+}
+.container {
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+}
+.progress__container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  max-width: 100%;
+  width: 400px;
+  position: relative;
+}
+.progress__container::before {
+  content: "";
+  background-color: gainsboro;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  transform: translateY(-50%);
+  z-index: -1;
+}
+.progress {
+  background-color: rgb(60, 172, 38);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  transform: translateY(-50%);
+  z-index: -1;
+  transition: 0.4s ease;
+}
+.circle {
+  background-color: honeydew;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25%;
+  border: 2px solid gray;
+  transition: 0.4s ease;
+}
+.circle.active {
+  border-color: rgb(60, 172, 38);
+}
+.btn {
+  background-color: rgb(60, 172, 38);
+  outline: none;
+  border: 0;
+  padding: 0.5em 2em;
+  margin: 1rem;
+  color: aliceblue;
+  font-size: 1rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+.btn:active {
+  transform: scale(0.95);
+}
+.btn:disabled {
+  background-color: gainsboro;
+  color: grey;
+  cursor: not-allowed;
+}

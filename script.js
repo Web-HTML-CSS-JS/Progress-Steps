@@ -3,6 +3,7 @@ const progress = document.getElementById("progress");
 const circles = document.querySelectorAll(".circle");
 const nextBtn = document.getElementById("next");
 const prevBtn = document.getElementById("prev");
+const formSegments = document.querySelectorAll(".form__segment");
 
 // Assign variables
 let currentActive = 1;
@@ -14,6 +15,7 @@ nextBtn.addEventListener("click", () => {
     currentActive = circles.length;
   }
   updateProgress();
+  updateForm(currentActive);
 });
 
 prevBtn.addEventListener("click", () => {
@@ -22,6 +24,7 @@ prevBtn.addEventListener("click", () => {
     currentActive = 1;
   }
   updateProgress();
+  updateForm(currentActive);
 });
 
 // Add Functions
@@ -39,11 +42,49 @@ const updateProgress = () => {
     ((actives.length - 1) / (circles.length - 1)) * 100 + "%";
   if (currentActive === 1) {
     prevBtn.disabled = true;
+    nextBtn.innerHTML = "Next";
   } else if (currentActive === circles.length) {
-    nextBtn.disabled = true;
+    nextBtn.innerHTML = "Submit";
   } else {
     prevBtn.disabled = false;
-    prevBtn.classList.add('btn--outline')
     nextBtn.disabled = false;
+    nextBtn.innerHTML = "Next";
   }
 };
+
+const updateForm = (currentActive) => {
+  let activeSegment;
+  switch (currentActive) {
+    case 1:
+      activeSegment = "seg1";
+      break;
+    case 2:
+      activeSegment = "seg2";
+      break;
+    case 3:
+      activeSegment = "seg3";
+      break;
+    case 4:
+      activeSegment = "seg4";
+      break;
+  }
+
+  removeCurrentClasses();
+  removeShowClasses();
+  document.getElementById(activeSegment).classList.remove("hide");
+  document.getElementById(activeSegment).className = "form__segment current";
+};
+
+const removeCurrentClasses = () => {
+  formSegments.forEach((segment) => {
+    segment.classList.remove("current");
+  });
+};
+
+const removeShowClasses = () => {
+  formSegments.forEach((segment) => {
+    segment.classList.remove("form__segment");
+    segment.classList.add("hide");
+  });
+};
+

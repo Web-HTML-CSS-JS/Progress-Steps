@@ -15,7 +15,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  overflow-x: hidden;
   margin: 0;
   background: rgba(250, 228, 202, 0.664);
 }
@@ -30,7 +30,7 @@ body {
   margin-bottom: 3rem;
   max-width: 100%;
   width: 400px;
-  margin: 5rem auto;
+  margin: 3rem auto;
   position: relative;
 }
 .progress__container::before {
@@ -70,12 +70,10 @@ body {
   border-color: rgb(60, 172, 38);
 }
 .btn {
-  background-color: rgb(60, 172, 38);
-  outline: none;
-  border: 0;
+  border: 2px solid black;
   padding: 0.5em 2em;
   margin: 1rem;
-  color: aliceblue;
+  color: black;
   font-size: 1rem;
   border-radius: 0.3rem;
   cursor: pointer;
@@ -84,8 +82,50 @@ body {
 .btn:active {
   transform: scale(0.95);
 }
-.btn:disabled {
+
+.btn--primary {
+  border-color: rgb(60, 172, 38);
+  background-color: rgb(60, 172, 38);
+  color: aliceblue;
+  outline: none;
+}
+.btn--outline {
+  border-color: rgb(60, 172, 38);
+  outline: none;
+}
+.btn--outline:hover {
+  background-color: rgb(60, 172, 38);
+  color: aliceblue;
+}
+.btn--outline:disabled {
   background-color: gainsboro;
   color: grey;
   cursor: not-allowed;
+  border-color: gray;
+}
+.form__container {
+  height: 300px;
+  width: 70%;
+  margin: 0 auto;
+  outline: 1px solid steelblue;
+}
+.form__segment {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+@media (max-width: 480px) {
+  .container {
+    width: 90%;
+  }
+  .form__container {
+    width: 100%;
+  }
 }
